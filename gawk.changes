@@ -1,0 +1,28 @@
+* Wed Dec 29 2010 Yan Li <yan.i.li@intel.com> - 3.1.5
+- Reverted to version 3.1.5 (BMC#11589)
+
+* Fri Jan 29 2010 Jian-feng Ding <jian-feng.ding@intel.com> 3.1.7
+- Upgrade 3.1.7 and enabled spectacle
+
+* Thu Dec 10 2009 Yi Yang <yi.y.yang@intel.com> 3.1.6
+- Remove "unset LD_AS_NEEDED"
+
+* Thu Nov 05 2009 Peter Zhu <peter.j.zhu@intel.com> - 3.1.6
+- Remove /usr/share/info/dir in %install
+- Set COPYING -x so that rpmlint doesn't report error
+
+* Mon Sep 21 2009 Anas Nashif <anas.nashif@intel.com> - 3.1.6
+- Fixed path of binary
+
+* Fri Apr 03 2009 Anas Nashif <anas.nashif@intel.com> 3.1.6
+- link awk in /usr/bin
+
+* Thu Dec 18 2008 Anas Nashif <anas.nashif@intel.com> 3.1.6
+- Remove default requirements
+
+* Wed Dec 17 2008 Arjan van de Ven <arjan@linux.intel.com> 3.1.6
+- Create standardized spec file
+
+* Fri Dec 05 2008 Arjan van de Ven <arjan@linux.intel.com> 3.1.6
+- Upgrade to version 3.1.6
+
