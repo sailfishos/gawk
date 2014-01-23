@@ -27,6 +27,7 @@ Patch8:     gawk-3.1.5-numflags.patch
 Patch9:     gawk-3.1.5-ipv6.patch
 Patch10:     gawk-3.1.5-freewstr.patch
 Patch11:     gawk-3.1.5-mbread.patch
+Patch12:     gawk-aarch64.patch
 Requires:   /bin/mktemp
 BuildRequires:  flex
 BuildRequires:  bison
@@ -70,6 +71,7 @@ considered to be a standard Linux tool for processing text.
 %patch10 -p1
 # gawk-3.1.5-mbread.patch
 %patch11 -p1
+%patch12 -p1
 # >> setup
 # << setup
 
