@@ -1,3 +1,6 @@
+* Thu Jan 03 2019 Tomi Leppänen <tomi.leppanen@jolla.com - 3.1.5-2
+- [packaging] Rename gawk-docs to gawk-doc. Contributes to JB#38578
+
 * Wed Dec 29 2010 Yan Li <yan.i.li@intel.com> - 3.1.5
 - Reverted to version 3.1.5 (BMC#11589)
 
