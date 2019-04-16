@@ -1,7 +1,7 @@
 Name:       gawk
 Summary:    The GNU version of the awk text processing utility
 Version:    3.1.5
-Release:    2
+Release:    3
 Epoch:      1
 Group:      Applications/Text
 License:    GPLv2+
@@ -23,6 +23,7 @@ Patch12:    gawk-aarch64.patch
 Requires:   /bin/mktemp
 BuildRequires:  flex
 BuildRequires:  bison
+Provides:   awk
 
 %description
 The gawk package contains the GNU version of awk, a text processing
