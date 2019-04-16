@@ -1,3 +1,6 @@
+* Tue Apr 16 2019 Juho Hämäläinen <juho.hamalainen@jolla.com> - 3.1.5-3
+- [packaging] Add Provides awk. JB#45509
+
 * Thu Jan 03 2019 Tomi Leppänen <tomi.leppanen@jolla.com> - 3.1.5-2
 - [packaging] Rename gawk-docs to gawk-doc. Contributes to JB#38578
 
