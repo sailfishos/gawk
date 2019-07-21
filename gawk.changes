@@ -1,3 +1,6 @@
+* Sun Jul 21 2019 Marko Saukko <marko.saukko@jolla.com> - 3.1.5-4
+- [packaging] Drop not needed flex dep. Contributes to JB#46697
+
 * Tue Apr 16 2019 Juho Hämäläinen <juho.hamalainen@jolla.com> - 3.1.5-3
 - [packaging] Add Provides awk. JB#45509
 
