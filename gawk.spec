@@ -72,8 +72,7 @@ Man and info pages for %{name}.
 
 %build
 
-%configure --disable-static \
-    --bindir=/bin
+%configure --disable-static
 
 make %{?_smf_mflags}
 
@@ -83,10 +82,7 @@ rm -rf %{buildroot}
 
 chmod a-x COPYING
 mkdir -p $RPM_BUILD_ROOT/usr/bin
-pushd $RPM_BUILD_ROOT/usr/bin
-ln -s ../../bin/gawk awk
-ln -s ../../bin/gawk gawk
-popd
+
 %find_lang gawk
 
 mkdir -p $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
@@ -98,7 +94,6 @@ install -m0644 -t $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} \
 %files
 %defattr(-,root,root,-)
 %license COPYING
-/bin/*
 /usr/bin/*
 %{_libexecdir}/awk
 %{_datadir}/awk
