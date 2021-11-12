@@ -1,0 +1,3 @@
+[submodule "gawk"]
+	path = gawk
+	url = https://github.com/sailfishos-mirror/gawk.git
