@@ -1,3 +1,7 @@
+* Sat Oct 04 2025 Matti Lehtimäki <matti.lehtimaki@jolla.com> - 3.1.5-5
+- [gawk] Fix build with gcc 15. JB#63045
+- [gawk] Use %autosetup in spec instead of %patchN. JB#63645
+
 * Sun Jul 21 2019 Marko Saukko <marko.saukko@jolla.com> - 3.1.5-4
 - [packaging] Drop not needed flex dep. Contributes to JB#46697
 
