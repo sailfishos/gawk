@@ -1,9 +1,8 @@
 Name:       gawk
 Summary:    The GNU version of the awk text processing utility
 Version:    3.1.5
-Release:    4
+Release:    5
 Epoch:      1
-Group:      Applications/Text
 License:    GPLv2+
 URL:        http://www.gnu.org/software/gawk/gawk.html
 Source0:    ftp://ftp.gnu.org/gnu/gawk/gawk-%{version}.tar.bz2
@@ -20,6 +19,7 @@ Patch9:     gawk-3.1.5-ipv6.patch
 Patch10:    gawk-3.1.5-freewstr.patch
 Patch11:    gawk-3.1.5-mbread.patch
 Patch12:    gawk-aarch64.patch
+Patch13:    gawk-3.1.5-gcc15.patch
 Requires:   /bin/mktemp
 BuildRequires:  bison
 Provides:   awk
@@ -34,51 +34,23 @@ considered to be a standard Linux tool for processing text.
 
 %package doc
 Summary:   Documentation for %{name}
-Group:     Documentation
 Requires:  %{name} = %{version}-%{release}
-Obsoletes: %{name}-docs
 
 %description doc
 Man and info pages for %{name}.
 
 %prep
-%setup -q -n %{name}-%{version}
-
-# gawk-3.1.3-getpgrp_void.patch
-%patch0 -p1
-# gawk-3.1.5-free.patch
-%patch1 -p1
-# gawk-3.1.5-fieldwidths.patch
-%patch2 -p1
-# gawk-3.1.5-binmode.patch
-%patch3 -p1
-# gawk-3.1.5-num2str.patch
-%patch4 -p1
-# gawk-3.1.5-wconcat.patch
-%patch5 -p1
-# gawk-3.1.5-internal.patch
-%patch6 -p1
-# gawk-3.1.5-syntaxerror.patch
-%patch7 -p1
-# gawk-3.1.5-numflags.patch
-%patch8 -p1
-# gawk-3.1.5-ipv6.patch
-%patch9 -p1
-# gawk-3.1.5-freewstr.patch
-%patch10 -p1
-# gawk-3.1.5-mbread.patch
-%patch11 -p1
-%patch12 -p1
+%autosetup -p1 -n %{name}-%{version}
 
 %build
 
+export CFLAGS="$RPM_OPT_FLAGS -std=gnu17"
 %configure --disable-static \
     --bindir=/bin
 
-make %{?_smf_mflags}
+%make_build
 
 %install
-rm -rf %{buildroot}
 %make_install
 
 chmod a-x COPYING
@@ -96,7 +68,6 @@ install -m0644 -t $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} \
 %lang_package
 
 %files
-%defattr(-,root,root,-)
 %license COPYING
 /bin/*
 /usr/bin/*
@@ -104,7 +75,6 @@ install -m0644 -t $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version} \
 %{_datadir}/awk
 
 %files doc
-%defattr(-,root,root,-)
 %{_infodir}/%{name}*.*
 %{_mandir}/man1/*%{name}.*
 %{_docdir}/%{name}-%{version}

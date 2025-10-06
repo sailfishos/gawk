@@ -1,0 +1,37 @@
+diff -aur gawk-3.1.5/awk.h gawk-3.1.5/awk.h
+--- gawk-3.1.5/awk.h	2005-07-26 21:07:43.000000000 +0300
++++ gawk-3.1.5/awk.h	2025-10-04 19:51:45.562198517 +0300
+@@ -242,7 +242,7 @@
+ 
+ /* Stuff for losing systems. */
+ #ifdef STRTOD_NOT_C89
+-extern double gawk_strtod();
++extern double gawk_strtod(const char *, char **);
+ #define strtod gawk_strtod
+ #endif
+ 
+diff -aur gawk-3.1.5-orig/dfa.c gawk-3.1.5/dfa.c
+--- gawk-3.1.5-orig/dfa.c	2005-07-26 21:07:43.000000000 +0300
++++ gawk-3.1.5/dfa.c	2025-10-04 19:48:33.847011379 +0300
+@@ -34,8 +34,8 @@
+ #ifdef STDC_HEADERS
+ #include <stdlib.h>
+ #else
+-extern char *calloc(), *malloc(), *realloc();
+-extern void free();
++extern void *calloc(size_t, size_t), *malloc(size_t), *realloc(void *, size_t);
++extern void free(void *);
+ #endif
+ 
+ #if defined(HAVE_STRING_H) || defined(STDC_HEADERS)diff -aur gawk-3.1.5-orig/missing_d/strtod.c gawk-3.1.5/missing_d/strtod.c
+--- gawk-3.1.5-orig/missing_d/strtod.c	2005-07-26 21:27:35.000000000 +0300
++++ gawk-3.1.5/missing_d/strtod.c	2025-10-04 20:20:01.857636611 +0300
+@@ -41,7 +41,7 @@
+ double
+ gawk_strtod(s, ptr)
+ register const char *s;
+-register const char **ptr;
++register char **ptr;
+ {
+ 	const char *start = s;		/* save original start of string */
+ 	const char *begin = NULL;	/* where the number really begins */
